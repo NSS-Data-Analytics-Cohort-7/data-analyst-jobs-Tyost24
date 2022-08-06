@@ -79,7 +79,7 @@ where location = 'CA'; */
 /* Q9 Find the name of each company and its average star rating for all companies that have more than 5000 reviews across all locations. How many companies are there with more that 5000 reviews across all locations?
 -- There are 45 companies with more than 5000 reviews */
 
-/*Select company, review_count, avg(star_rating) as avg_rating
+/*Select Distinct(company), sum(review_count) as review_count, avg(star_rating) as avg_rating
 from data_analyst_jobs
 where review_count > 5000 and company is not NULL
 Group by company, review_count
@@ -113,6 +113,17 @@ from data_analyst_jobs
 Where title Not Like '%_nalyst%' AND title Not Like '%_NALYST%'
 and title Not like '%_nalytics%' and title not like '%_NALYTICS%'*/
 
+
+/* BONUS 
+-- the 3 industries are Banks and Finacial Services with 6 jobs, Consulting and Business Services with 7 postings and InsuranceHealth Care with 3 all ove 3 weeks */
+
+/*Select count(domain),domain, skill
+from data_analyst_jobs
+where days_since_posting >21 
+and domain is not NULL
+and skill like '%SQL%'
+Group by domain, days_since_posting, skill
+Order by count DESC */
 
 
 
