@@ -31,12 +31,12 @@ or location = 'KY';*/
 
 
 /* Q4 How many postings in Tennessee have a star rating above 4? 
---There are 4 Posting in TN and above 4 stars*/
+--There are 3 Posting in TN and above 4 stars*/
 
 /*Select *
 from data_analyst_jobs
 Where location = 'TN'
-and star_rating >= 4; */
+and star_rating > 4; */
 
 
 
@@ -56,18 +56,17 @@ where review_count Between 500 and 1000; */
 from data_analyst_jobs
 where star_rating is not NUll
 Group by location
-Order by avg_rating DESC
-Limit 1; */
-
+Order by avg_rating DESC;*/
 
 
 /* Q7 Select unique job titles from the data_analyst_jobs table. How many are there? 
 --There are 881 Unique job titles */
 
 /*Select count (Distinct(title))
-From data_analyst_jobs */
+From data_analyst_jobs;*/
 
-/* Q* How many unique job titles are there for California companies? 
+
+/* Q8 How many unique job titles are there for California companies? 
 --There are 230 unique job titles in California */
 
 /* Select count (Distinct(title))
@@ -77,12 +76,12 @@ where location = 'CA'; */
 
 
 /* Q9 Find the name of each company and its average star rating for all companies that have more than 5000 reviews across all locations. How many companies are there with more that 5000 reviews across all locations?
--- There are 45 companies with more than 5000 reviews */
+-- There are 40 companies with more than 5000 reviews, answer edited after walkthrough */
 
-/*Select Distinct(company), sum(review_count) as review_count, avg(star_rating) as avg_rating
+/*Select Distinct(company), avg(star_rating) as avg_rating
 from data_analyst_jobs
 where review_count > 5000 and company is not NULL
-Group by company, review_count
+Group by company
 Order by avg_rating DESC; */
 
 
